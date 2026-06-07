@@ -754,6 +754,21 @@ section { position: relative; z-index: 1; }
 .os-linux { background: rgba(255,180,0,0.1);  color: #ffc107; border: 1px solid rgba(255,180,0,0.25); }
 .os-linux::before { content: '🐧'; font-size: 11px; }
 
+.feat-distros { align-items: flex-start !important; }
+.distro-list { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 1px; }
+.distro-tag {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--text-muted);
+  background: rgba(45,212,191,0.05);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 2px 7px;
+  white-space: nowrap;
+}
+
+.feat-check--hidden { visibility: hidden; }
+
 .pricing-micro {
   font-family: var(--mono);
   font-size: 11px;
@@ -1479,11 +1494,11 @@ footer { border-top: 1px solid var(--border); padding: 3rem 4rem; display: flex;
           <li><span class="feat-check">✓</span> scan · fix · verify · restore</li>
           <li><span class="feat-check">✓</span> Windows 10 · 11</li>
           <li><span class="feat-check">✓</span> macOS 10.15 Catalina and later</li>
-          <li><span class="feat-check">✓</span> Linux Ubuntu 20.04 and later</li>
+          <li><span class="feat-check">✓</span> Linux: Ubuntu 20.04+ · Debian 10+</li>
+          <li><span class="feat-check feat-check--hidden">✓</span> Fedora 36+ · Arch · and more</li>
           <li><span class="feat-check">✓</span> Lifetime license</li>
         </ul>
         <a href="#" class="pricing-btn pricing-btn--primary" target="_blank">Get Solo — $19</a>
-        <p class="pricing-micro">One-time payment · No subscription</p>
       </div>
 
       <!-- Team — highlighted -->
@@ -1498,7 +1513,8 @@ footer { border-top: 1px solid var(--border); padding: 3rem 4rem; display: flex;
           <li><span class="feat-check">✓</span> scan · fix · verify · restore</li>
           <li><span class="feat-check">✓</span> Windows 10 · 11</li>
           <li><span class="feat-check">✓</span> macOS 10.15 Catalina and later</li>
-          <li><span class="feat-check">✓</span> Linux Ubuntu 20.04 and later</li>
+          <li><span class="feat-check">✓</span> Linux: Ubuntu 20.04+ · Debian 10+</li>
+          <li><span class="feat-check feat-check--hidden">✓</span> Fedora 36+ · Arch · and more</li>
           <li><span class="feat-check">✓</span> Priority email support</li>
         </ul>
         <a href="#" class="pricing-btn pricing-btn--featured" target="_blank">Get Team — $49</a>
