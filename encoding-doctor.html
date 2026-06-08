@@ -494,6 +494,11 @@ section { position: relative; z-index: 1; }
   position: relative;
   z-index: 1;
 }
+.section-label--danger {
+  font-family: var(--mono); font-size: 11px; color: var(--danger);
+  letter-spacing: 0.15em; text-transform: uppercase;
+  margin-bottom: 1rem; display: flex; align-items: center; gap: 8px;
+}
 .caution-header {
   display: flex; align-items: center; gap: 10px;
   font-family: var(--mono); font-size: 11px; color: var(--danger);
@@ -1373,10 +1378,10 @@ footer { border-top: 1px solid var(--border); padding: 3rem 4rem; display: flex;
 <!-- DETAILED WARNING -->
 <section class="caution-section">
   <div class="reveal">
-    <div class="caution-header">
-      <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1L15 14H1L8 1Z" stroke="#ff6b6b" stroke-width="1.5" stroke-linejoin="round"/><line x1="8" y1="6" x2="8" y2="10" stroke="#ff6b6b" stroke-width="1.5"/><circle cx="8" cy="12" r="0.75" fill="#ff6b6b"/></svg>
+    <p class="section-label--danger">
+      <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M8 1L15 14H1L8 1Z" stroke="#ff6b6b" stroke-width="1.5" stroke-linejoin="round"/><line x1="8" y1="6" x2="8" y2="10" stroke="#ff6b6b" stroke-width="1.5"/><circle cx="8" cy="12" r="0.75" fill="#ff6b6b"/></svg>
       // before you run fix
-    </div>
+    </p>
     <h2 class="caution-headline">Important — Read this first.</h2>
     <p class="caution-subtext">enc-doctor fix modifies files on disk. Know what you're doing before you run it.</p>
   </div>
@@ -1658,7 +1663,7 @@ const STEPS = [
   {
     cmd: 'enc-doctor scan C:\\Users\\use-doctor\\Downloads\\example_project',
     assistBefore: 'Now let\'s <strong>scan</strong> the example project. This will detect all encoding issues without touching any files. Safe to run anytime. Press <strong>Enter ↵</strong>.',
-    assistAfter: '4 files have issues — BOM, CRLF, and null bytes. Always review this report carefully before fixing. Want to see a dry-run first? Press <strong>Enter ↵</strong> to run <code>fix --dry-run</code>.',
+    assistAfter: '4 files have issues — BOM, CRLF, and null bytes detected. Before touching anything, let\'s <strong>back up the entire project folder</strong> first. Press <strong>Enter ↵</strong> to create a backup.',
     output: [
       { text: '', cls: 'wc-default' },
       { text: 'SCAN REPORT', cls: 'wc-bold' },
@@ -1679,6 +1684,25 @@ const STEPS = [
       { text: '', cls: 'wc-default' },
       { text: "  Run 'enc-doctor fix <path>' to repair fixable issues.", cls: 'wc-yellow' },
       { text: '  Review this report carefully before running fix.', cls: 'wc-dim' },
+    ]
+  },
+  {
+    cmd: 'xcopy C:\\Users\\use-doctor\\Downloads\\example_project C:\\Users\\use-doctor\\Downloads\\example_project_backup\\ /E /I /H',
+    assistBefore: 'Before fixing anything — <strong>always back up your project folder first</strong>. This copies the entire project including hidden files. One command, 10 seconds, total safety. Press <strong>Enter ↵</strong>.',
+    assistAfter: '✓ <strong>Full backup saved.</strong> Now even if something goes wrong, you can restore the entire project in one copy command. enc-doctor also creates per-file .bak backups automatically — this is your second safety net. Press <strong>Enter ↵</strong> to preview changes with dry-run.',
+    output: [
+      { text: '', cls: 'wc-default' },
+      { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\config\\settings.ini', cls: 'wc-dim' },
+      { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\data\\users.csv', cls: 'wc-dim' },
+      { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\src\\database.py', cls: 'wc-dim' },
+      { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\src\\utils.py', cls: 'wc-dim' },
+      { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\src\\main.py', cls: 'wc-dim' },
+      { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\README.md', cls: 'wc-dim' },
+      { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\requirements.txt', cls: 'wc-dim' },
+      { text: '', cls: 'wc-default' },
+      { text: '7 File(s) copied', cls: 'wc-green' },
+      { text: '', cls: 'wc-default' },
+      { text: '  Backup saved to: example_project_backup\\', cls: 'wc-green' },
     ]
   },
   {
@@ -1740,7 +1764,7 @@ const STEPS = [
   {
     cmd: 'enc-doctor verify C:\\Users\\use-doctor\\Downloads\\example_project',
     assistBefore: 'Last step — <strong>verify</strong> checks every file is valid UTF-8 and safe to commit. Always run this after fixing. Press <strong>Enter ↵</strong>.',
-    assistAfter: '✓ <strong>All 7/7 files pass.</strong> Your project is clean and safe to commit. That\'s the full enc-doctor workflow — install → activate → scan → fix → verify. <code>pip install encoding-doctor</code> to get started!',
+    assistAfter: '✓ <strong>All 7/7 files pass.</strong> Project is clean and safe to commit. That\'s the complete enc-doctor workflow — install → activate → help → scan → backup → dry-run → fix → verify. <code>pip install encoding-doctor</code>',
     output: [
       { text: '', cls: 'wc-default' },
       { text: 'VERIFY REPORT', cls: 'wc-bold' },
