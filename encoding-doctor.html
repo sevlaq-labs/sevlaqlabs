@@ -1046,6 +1046,160 @@ footer { border-top: 1px solid var(--border); padding: 3rem 4rem; display: flex;
   50% { box-shadow: 0 0 0 8px rgba(45,212,191,0); }
 }
 .enter-btn.pulse { animation: enter-pulse 1.4s ease infinite; }
+/* ── TRUST STRIP ── */
+.trust-strip {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  position: relative; z-index: 1;
+}
+.trust-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 2.5rem;
+  border-right: 1px solid var(--border);
+}
+.trust-stat:last-child { border-right: none; }
+.trust-stat-num {
+  font-family: var(--mono);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.trust-stat-label {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+/* ── WHO IS THIS FOR ── */
+.who-section {
+  padding: 5rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.who-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+.who-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: border-color 0.2s;
+}
+.who-card:hover { border-color: var(--border-bright); }
+.who-card-title {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.who-card-title::before {
+  content: '→';
+  color: var(--green-dim);
+  font-size: 12px;
+}
+.who-card-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.who-card-example {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 0.25rem;
+}
+
+/* ── FAQ ── */
+.faq-section {
+  padding: 5rem 2rem;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative; z-index: 1;
+}
+.faq-inner { max-width: 720px; margin: 0 auto; }
+.faq-list { display: flex; flex-direction: column; gap: 0; margin-top: 2.5rem; }
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-q {
+  font-family: var(--mono);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 1.25rem 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  user-select: none;
+  transition: color 0.2s;
+}
+.faq-q:hover { color: var(--green); }
+.faq-q .faq-icon {
+  font-size: 16px;
+  color: var(--green);
+  flex-shrink: 0;
+  transition: transform 0.25s;
+  font-style: normal;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-a {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0;
+}
+.faq-item.open .faq-a {
+  max-height: 300px;
+  padding-bottom: 1.25rem;
+}
+.faq-a code {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--green);
+  background: rgba(45,212,191,0.07);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1px 6px;
+}
+
+@media (max-width: 640px) {
+  .trust-stat { padding: 0.5rem 1.25rem; }
+  .who-grid { grid-template-columns: 1fr; }
+}
+
 </style>
 </head>
 <body>
@@ -1115,6 +1269,30 @@ footer { border-top: 1px solid var(--border); padding: 3rem 4rem; display: flex;
     <div class="copied-toast" id="copiedToast">COPIED</div>
   </div>
   <p class="copy-hint">click to copy</p>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-stat">
+    <span class="trust-stat-num">5</span>
+    <span class="trust-stat-label">Issue types detected</span>
+  </div>
+  <div class="trust-stat">
+    <span class="trust-stat-num">4</span>
+    <span class="trust-stat-label">Commands</span>
+  </div>
+  <div class="trust-stat">
+    <span class="trust-stat-num">0</span>
+    <span class="trust-stat-label">Dependencies</span>
+  </div>
+  <div class="trust-stat">
+    <span class="trust-stat-num">3.9+</span>
+    <span class="trust-stat-label">Python version</span>
+  </div>
+  <div class="trust-stat">
+    <span class="trust-stat-num">3</span>
+    <span class="trust-stat-label">OS supported</span>
+  </div>
 </div>
 
 <!-- INTERACTIVE TERMINAL DEMO -->
@@ -1188,6 +1366,42 @@ footer { border-top: 1px solid var(--border); padding: 3rem 4rem; display: flex;
       Press Enter ↵
     </button>
     <p style="font-family:var(--mono);font-size:11px;color:var(--text-dim);margin-top:0.6rem;">or press the Enter key on your keyboard</p>
+  </div>
+</section>
+
+<!-- WHO IS THIS FOR -->
+<section class="who-section">
+  <div class="reveal">
+    <p class="section-label">// who is this for</p>
+    <h2 class="section-title">Built for developers who care about clean code.</h2>
+    <p class="section-desc">If your project runs Python and touches text files, encoding-doctor is for you.</p>
+  </div>
+  <div class="who-grid">
+
+    <div class="who-card reveal">
+      <div class="who-card-title">Python developers on Windows</div>
+      <div class="who-card-desc">Windows saves files as cp1252 by default. Every time you edit a UTF-8 file with the wrong editor, you risk silent corruption. encoding-doctor catches it before it reaches Git.</div>
+      <div class="who-card-example">// Notepad, VS Code misconfigured, Excel CSV exports</div>
+    </div>
+
+    <div class="who-card reveal reveal-delay-1">
+      <div class="who-card-title">Teams mixing Windows + Linux + macOS</div>
+      <div class="who-card-desc">One developer on Windows pushes CRLF. Another on Linux sees red lines in every diff. encoding-doctor normalizes the whole project in one command.</div>
+      <div class="who-card-example">// Cross-platform teams, remote work, open source contributors</div>
+    </div>
+
+    <div class="who-card reveal">
+      <div class="who-card-title">Developers migrating legacy codebases</div>
+      <div class="who-card-desc">Old Python 2 projects, PHP 5 codebases, VB.NET files — all full of encoding mess. Scan thousands of files at once, fix systematically, verify everything is clean.</div>
+      <div class="who-card-example">// Python 2 → 3 migration, legacy enterprise code</div>
+    </div>
+
+    <div class="who-card reveal reveal-delay-1">
+      <div class="who-card-title">Open source maintainers</div>
+      <div class="who-card-desc">Tired of PRs from Windows contributors sneaking in BOM and CRLF? Add enc-doctor to your CI or onboarding docs. One scan before merge, zero encoding surprises.</div>
+      <div class="who-card-example">// GitHub repos, CI pipelines, contributor guidelines</div>
+    </div>
+
   </div>
 </section>
 
@@ -1473,6 +1687,44 @@ footer { border-top: 1px solid var(--border); padding: 3rem 4rem; display: flex;
           <div class="step-code">enc-doctor verify ./my_project</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="reveal">
+      <p class="section-label">// faq</p>
+      <h2 class="section-title">Common questions.</h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">Is scan really free forever? <i class="faq-icon">+</i></div>
+        <div class="faq-a">Yes. <code>enc-doctor scan</code> has no license requirement and never will. You can scan any project, any size, as many times as you want — completely free. Only <code>fix</code>, <code>verify</code>, and <code>restore</code> require a license.</div>
+      </div>
+
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">What if fix breaks my file? <i class="faq-icon">+</i></div>
+        <div class="faq-a">encoding-doctor creates a <code>.bak</code> backup of every file before modifying it. You can restore any file instantly with <code>enc-doctor restore &lt;file&gt;</code>. We also recommend backing up your entire project folder with <code>xcopy</code> (Windows) or <code>cp -r</code> (macOS/Linux) before running fix — the interactive demo shows you exactly how.</div>
+      </div>
+
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">Does it work on large projects with thousands of files? <i class="faq-icon">+</i></div>
+        <div class="faq-a">Yes. encoding-doctor scans recursively and skips known non-source directories like <code>__pycache__</code>, <code>.git</code>, <code>node_modules</code>, and virtual environments automatically. It is designed for real production codebases, not just small scripts.</div>
+      </div>
+
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">Can I use one license on multiple machines? <i class="faq-icon">+</i></div>
+        <div class="faq-a">Solo license is for 1 developer — you can activate it on your machine and deactivate it when switching devices using <code>enc-doctor deactivate</code>. Team license covers up to 5 developers. Each developer activates with the same license key.</div>
+      </div>
+
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">Does it work offline or in air-gapped environments? <i class="faq-icon">+</i></div>
+        <div class="faq-a">Scan works fully offline — zero network required. Fix and verify require a one-time license activation, but once activated the license is stored locally. encoding-doctor has zero runtime dependencies and runs on any machine with Python 3.9+ including Raspberry Pi, edge devices, and air-gapped servers.</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1972,6 +2224,13 @@ currentStep = -1;
 // Show the first step's assistant message without incrementing step counter
 setAssistMsg(STEPS[0].assistBefore);
 enterBtn.classList.add('pulse');
+
+// FAQ toggle
+function toggleFaq(el) {
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) el.classList.add('open');
+}
 </script>
 </body>
 </html>
