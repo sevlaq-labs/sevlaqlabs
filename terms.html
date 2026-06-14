@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms & Conditions | Stateflow Labs</title>
+<meta name="description" content="Terms and Conditions for Stateflow Labs products, including encoding-doctor.">
+<link rel="canonical" href="https://stateflow-dev.github.io/stateflowlabs/terms.html">
+<meta property="og:title" content="Terms & Conditions | Stateflow Labs">
+<meta property="og:url" content="https://stateflow-dev.github.io/stateflowlabs/terms.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Stateflow Labs">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='400' height='400' viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='400' height='400' rx='80' fill='%230F1117'/%3E%3Cpath d='M280,65 C280,22 120,22 120,145 C120,255 280,235 280,315 C280,375 140,375 120,350' fill='none' stroke='%23FFFFFF' stroke-width='38' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='280' cy='65' r='22' fill='%230F1117'/%3E%3Ccircle cx='280' cy='65' r='16' fill='%232DD4BF'/%3E%3Ccircle cx='120' cy='145' r='22' fill='%230F1117'/%3E%3Ccircle cx='120' cy='145' r='16' fill='%232DD4BF'/%3E%3Ccircle cx='280' cy='315' r='22' fill='%230F1117'/%3E%3Ccircle cx='280' cy='315' r='16' fill='%232DD4BF'/%3E%3Ccircle cx='120' cy='350' r='22' fill='%230F1117'/%3E%3Ccircle cx='120' cy='350' r='16' fill='%232DD4BF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #080c0a; --bg2: #0d1210; --bg3: #111a15;
+  --green: #2DD4BF; --green-dim: #2aada0; --green-glow: rgba(45,212,191,0.08);
+  --text: #e8f0eb; --text-muted: #9db8ac; --text-dim: #6b9080;
+  --border: rgba(45,212,191,0.12); --border-bright: rgba(45,212,191,0.3);
+  --mono: 'JetBrains Mono', monospace; --sans: 'Syne', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background-image: linear-gradient(rgba(45,212,191,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(45,212,191,0.03) 1px, transparent 1px);
+  background-size: 40px 40px; pointer-events: none; z-index: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  padding: 1.2rem 4rem; background: rgba(8,12,10,0.88); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+nav > div { justify-self: end; }
+.nav-logo { font-family: var(--mono); font-size: 13px; font-weight: 600; color: var(--text); letter-spacing: 0.05em; text-decoration: none; display: flex; align-items: center; gap: 10px; justify-self: center; }
+.nav-logo .brand-name span { color: var(--green); }
+.nav-logo-icon { width: 36px; height: 36px; flex-shrink: 0; }
+.nav-back { font-family: var(--mono); font-size: 12px; color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; letter-spacing: 0.04em; justify-self: start; }
+.nav-back::before { content: '←'; font-size: 13px; transition: transform 0.2s; }
+.nav-back:hover { color: var(--green); }
+.nav-back:hover::before { transform: translateX(-3px); }
+.nav-gh { font-family: var(--mono); font-size: 12px; color: var(--green); border: 1px solid var(--border-bright); padding: 6px 16px; border-radius: 4px; text-decoration: none; transition: background 0.2s; }
+.nav-gh:hover { background: var(--green-glow); }
+.nav-hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+.nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text-muted); border-radius: 2px; transition: all 0.3s; }
+
+section { position: relative; z-index: 1; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 45vh; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; text-align: center; padding: 8rem 2rem 4rem;
+}
+.hero-tag { font-family: var(--mono); font-size: 11px; color: var(--green); letter-spacing: 0.15em; text-transform: uppercase; border: 1px solid var(--border-bright); padding: 5px 14px; border-radius: 2px; margin-bottom: 2rem; display: inline-block; }
+.hero h1 { font-family: var(--sans); font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; color: var(--text); margin-bottom: 1rem; }
+.hero h1 span { color: var(--green); }
+.hero-desc { max-width: 520px; font-size: 16px; color: var(--text-muted); line-height: 1.8; }
+.hero-meta { font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin-top: 1.5rem; letter-spacing: 0.06em; }
+
+/* ── CONTENT ── */
+.content-section { max-width: 780px; margin: 0 auto; padding: 2rem 2rem 6rem; }
+.toc-card {
+  background: var(--bg3); border: 1px solid var(--border); border-radius: 8px;
+  padding: 1.5rem 2rem; margin-bottom: 3rem;
+}
+.toc-label { font-family: var(--mono); font-size: 10px; color: var(--green); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
+.toc-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+.toc-list a { font-family: var(--mono); font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 8px; }
+.toc-list a::before { content: '//'; color: var(--green); font-size: 10px; }
+.toc-list a:hover { color: var(--green); }
+
+.tc-block { margin-bottom: 3rem; scroll-margin-top: 100px; }
+.tc-block-num { font-family: var(--mono); font-size: 10px; color: var(--green); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.tc-block h2 { font-family: var(--sans); font-size: 1.35rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; }
+.tc-block p { color: var(--text-muted); font-size: 15px; line-height: 1.85; margin-bottom: 0.9rem; }
+.tc-block ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.9rem; }
+.tc-block ul li { font-family: var(--mono); font-size: 13px; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.7; }
+.tc-block ul li::before { content: '→'; position: absolute; left: 0; color: var(--green); font-size: 11px; top: 4px; }
+.tc-block code { font-family: var(--mono); font-size: 12.5px; background: rgba(45,212,191,0.08); border: 1px solid var(--border); border-radius: 3px; padding: 1px 7px; color: var(--green); }
+
+.divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+.highlight-box {
+  background: rgba(45,212,191,0.05); border: 1px solid rgba(45,212,191,0.2);
+  border-radius: 8px; padding: 1.2rem 1.5rem; margin: 1.2rem 0;
+}
+.highlight-box p { margin-bottom: 0; }
+
+/* ── FOOTER ── */
+footer { border-top: 1px solid var(--border); padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
+.footer-left { font-family: var(--mono); font-size: 12px; color: var(--text-dim); }
+.footer-left span { color: var(--green); }
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a { font-family: var(--mono); font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--green); }
+
+/* ── MOBILE NAV OVERLAY ── */
+.mobile-nav-overlay {
+  display: none; position: fixed; inset: 0; z-index: 200;
+  background: rgba(8,12,10,0.97); backdrop-filter: blur(16px);
+  flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+}
+.mobile-nav-overlay.open { display: flex; }
+.mobile-nav-overlay a { font-family: var(--mono); font-size: 18px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.mobile-nav-overlay a:hover { color: var(--green); }
+.mobile-nav-close { background: none; border: 1px solid var(--border); color: var(--text-muted); font-size: 16px; padding: 8px 16px; border-radius: 4px; cursor: pointer; position: absolute; top: 2rem; right: 2rem; font-family: var(--mono); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; grid-template-columns: auto 1fr auto; }
+  .nav-back { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-logo { font-size: 11px; gap: 7px; }
+  footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2.5rem 1.5rem; }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  .content-section { padding: 1.5rem 1.5rem 4rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://stateflow-dev.github.io/stateflowlabs/encoding-doctor.html" class="nav-back">encoding-doctor</a>
+  <a href="https://stateflow-dev.github.io/stateflowlabs/encoding-doctor.html" class="nav-logo">
+    <svg class="nav-logo-icon" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="400" height="400" rx="80" fill="#0F1117"/>
+      <path d="M280,65 C280,22 120,22 120,145 C120,255 280,235 280,315 C280,375 140,375 120,350" fill="none" stroke="#FFFFFF" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="280" cy="65" r="16" fill="#2DD4BF"/>
+      <circle cx="120" cy="145" r="16" fill="#2DD4BF"/>
+      <circle cx="280" cy="315" r="16" fill="#2DD4BF"/>
+      <circle cx="120" cy="350" r="16" fill="#2DD4BF"/>
+    </svg>
+    <div class="brand-name">Stateflow <span>Labs</span></div>
+  </a>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <a href="https://github.com/stateflow-dev" class="nav-gh" target="_blank">GitHub →</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV OVERLAY -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose">✕</button>
+  <a href="https://stateflow-dev.github.io/stateflowlabs/encoding-doctor.html">← encoding-doctor</a>
+  <a href="https://github.com/stateflow-dev" target="_blank">GitHub</a>
+  <a href="https://stateflow-dev.github.io/stateflowlabs/encoding-doctor.html">encoding-doctor</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">// legal</div>
+  <h1>Terms &amp; <span>Conditions</span></h1>
+  <p class="hero-desc">Plain language. No surprises. Here's exactly what you're agreeing to when you use our products.</p>
+  <p class="hero-meta">Stateflow Labs · Last updated: June 2025</p>
+</section>
+
+<!-- CONTENT -->
+<section class="content-section">
+
+  <!-- Table of Contents -->
+  <div class="toc-card">
+    <div class="toc-label">// contents</div>
+    <ul class="toc-list">
+      <li><a href="#acceptance">Acceptance of Terms</a></li>
+      <li><a href="#products">Products & Licenses</a></li>
+      <li><a href="#usage">Permitted Use</a></li>
+      <li><a href="#payment">Payment & Pricing</a></li>
+      <li><a href="#refunds">Refund Policy</a></li>
+      <li><a href="#ip">Intellectual Property</a></li>
+      <li><a href="#privacy">Privacy & Data</a></li>
+      <li><a href="#disclaimer">Disclaimer of Warranties</a></li>
+      <li><a href="#liability">Limitation of Liability</a></li>
+      <li><a href="#governing-law">Governing Law</a></li>
+      <li><a href="#changes">Changes to Terms</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- 1. Acceptance -->
+  <div class="tc-block" id="acceptance">
+    <div class="tc-block-num">// 01</div>
+    <h2>Acceptance of Terms</h2>
+    <p>By purchasing, downloading, installing, or using any product offered by Stateflow Labs, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, do not use our products.</p>
+    <p>These terms apply to all products offered by Stateflow Labs, including but not limited to <code>encoding-doctor</code>.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 2. Products & Licenses -->
+  <div class="tc-block" id="products">
+    <div class="tc-block-num">// 02</div>
+    <h2>Products &amp; Licenses</h2>
+    <p>Stateflow Labs offers software tools for developers distributed as licensed products. When you purchase a license, you receive a non-exclusive, non-transferable right to use the software under the terms of your chosen plan.</p>
+    <ul>
+      <li><strong>Solo License</strong> — one developer, unlimited projects, lifetime access</li>
+      <li><strong>Team License</strong> — up to five developers, unlimited projects, lifetime access</li>
+      <li>A free <code>scan</code> tier is available without purchase for evaluation purposes</li>
+    </ul>
+    <p>License keys are issued upon payment confirmation and are tied to the purchasing individual or organization. Sharing, reselling, or redistributing license keys is not permitted.</p>
+    <p>Solo license holders may activate on one machine at a time. You may deactivate using <code>enc-doctor deactivate</code> before switching to a new device. Team license covers up to 5 developers using the same license key. Once activated, the license is stored locally — no internet connection is required at runtime.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 3. Permitted Use -->
+  <div class="tc-block" id="usage">
+    <div class="tc-block-num">// 03</div>
+    <h2>Permitted Use</h2>
+    <p>You may use Stateflow Labs products for personal and commercial development projects within the scope of your purchased license. You may not:</p>
+    <ul>
+      <li>Reverse engineer, decompile, or disassemble the software</li>
+      <li>Redistribute, sublicense, or resell the software or license keys</li>
+      <li>Use the software to build a competing product or service</li>
+      <li>Remove or alter any copyright or proprietary notices</li>
+    </ul>
+    <p>Use of the free <code>scan</code> tier is permitted for evaluation and non-commercial purposes. Commercial use requires a valid paid license.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 4. Payment -->
+  <div class="tc-block" id="payment">
+    <div class="tc-block-num">// 04</div>
+    <h2>Payment &amp; Pricing</h2>
+    <p>All prices are listed in US dollars (USD). Purchases are processed securely through our payment provider, Lemon Squeezy. Stateflow Labs does not store or handle your payment card information directly.</p>
+    <p>Current pricing at time of purchase is:</p>
+    <ul>
+      <li>Solo License — $19 one-time payment, lifetime license</li>
+      <li>Team License — $49 one-time payment, lifetime license</li>
+    </ul>
+    <p>Prices are subject to change. Any price change will not affect licenses already purchased.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 5. Refunds -->
+  <div class="tc-block" id="refunds">
+    <div class="tc-block-num">// 05</div>
+    <h2>Refund Policy</h2>
+    <div class="highlight-box">
+      <p>All sales are final once a license key has been issued and activated. We do not offer refunds on purchased licenses.</p>
+    </div>
+    <p>Because <code>encoding-doctor</code> provides a fully functional free <code>scan</code> tier, you can test complete compatibility with your project and environment before purchasing. We encourage you to do so.</p>
+    <p>If you experience a technical issue that prevents the software from functioning as described, please contact us at <code>stateflowlabs@gmail.com</code> and we will work with you to resolve it.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 6. Intellectual Property -->
+  <div class="tc-block" id="ip">
+    <div class="tc-block-num">// 06</div>
+    <h2>Intellectual Property</h2>
+    <p>All software, source code, documentation, branding, and related materials produced by Stateflow Labs remain the exclusive intellectual property of Stateflow Labs. Purchasing a license grants you usage rights only — it does not transfer ownership.</p>
+    <p>The name "encoding-doctor", "Stateflow Labs", and associated logos are trademarks of Stateflow Labs and may not be used without prior written permission.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 7. Privacy -->
+  <div class="tc-block" id="privacy">
+    <div class="tc-block-num">// 07</div>
+    <h2>Privacy &amp; Data</h2>
+    <p>Stateflow Labs products are designed with privacy first. <code>encoding-doctor</code> operates fully offline — your source code, file contents, and project data never leave your machine and are never transmitted to any external server.</p>
+    <p>The only personal data we collect is what you provide at the time of purchase (name, email address) for the purpose of license delivery. This data is handled by our payment processor, Lemon Squeezy, and is subject to their privacy policy.</p>
+    <p>We do not sell, share, or use your personal data for marketing purposes. You will only receive transactional emails related to your license or direct support replies.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 8. Disclaimer -->
+  <div class="tc-block" id="disclaimer">
+    <div class="tc-block-num">// 08</div>
+    <h2>Disclaimer of Warranties</h2>
+    <p>Stateflow Labs products are provided "as is" without warranty of any kind, express or implied. We do not warrant that the software will be error-free, uninterrupted, or meet every specific use case.</p>
+    <div class="highlight-box">
+      <p><strong style="color:var(--text);">Important — CLI Binary Notice:</strong> <code>encoding-doctor</code> is a command-line tool that modifies files directly on disk. By using the <code>fix</code> command, you acknowledge and accept that:</p>
+    </div>
+    <ul>
+      <li>File modifications are made in-place and are your sole responsibility to verify</li>
+      <li>You must always run <code>enc-doctor scan</code> and review the report before running <code>enc-doctor fix</code></li>
+      <li>While <code>.bak</code> backups are created automatically, you are responsible for maintaining your own full project backups before running fix</li>
+      <li>You must not run <code>enc-doctor fix</code> on binary file directories — doing so may cause irreversible data loss</li>
+      <li>You must not run <code>enc-doctor fix</code> on production environments without prior testing</li>
+      <li>Stateflow Labs is not responsible for any data loss, file corruption, or system issues resulting from use or misuse of the software</li>
+    </ul>
+    <p>We strongly recommend running <code>encoding-doctor</code> on Git-tracked projects so you can always revert changes with <code>git checkout .</code> if needed.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 9. Limitation of Liability -->
+  <div class="tc-block" id="liability">
+    <div class="tc-block-num">// 09</div>
+    <h2>Limitation of Liability</h2>
+    <p>To the maximum extent permitted by applicable law, Stateflow Labs shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our products.</p>
+    <p>In no event shall Stateflow Labs' total liability to you exceed the amount you paid for the license giving rise to the claim.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 10. Governing Law -->
+  <div class="tc-block" id="governing-law">
+    <div class="tc-block-num">// 10</div>
+    <h2>Governing Law</h2>
+    <p>These Terms and Conditions are governed by and construed in accordance with the laws of the Republic of Indonesia, without regard to its conflict of law provisions.</p>
+    <p>Any disputes arising from these terms or your use of Stateflow Labs products shall first be attempted to be resolved through good-faith communication via email at <code>stateflowlabs@gmail.com</code>. If unresolved, disputes shall be subject to the jurisdiction of the courts of Indonesia.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 11. Changes -->
+  <div class="tc-block" id="changes">
+    <div class="tc-block-num">// 11</div>
+    <h2>Changes to Terms</h2>
+    <p>We reserve the right to update these Terms and Conditions at any time. Changes will be posted on this page with an updated effective date. Continued use of our products after changes are posted constitutes acceptance of the updated terms.</p>
+    <p>We will not retroactively change the terms of already-purchased licenses in a way that reduces your rights.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 12. Contact -->
+  <div class="tc-block" id="contact">
+    <div class="tc-block-num">// 12</div>
+    <h2>Contact</h2>
+    <p>If you have any questions about these Terms and Conditions or need support, you can reach us at:</p>
+    <div class="highlight-box">
+      <p>Stateflow Labs<br>
+      Email: <a href="mailto:stateflowlabs@gmail.com" style="color:var(--green);text-decoration:none;">stateflowlabs@gmail.com</a></p>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <div class="footer-left">
+    <span>Stateflow Labs</span> · Terms &amp; Conditions
+  </div>
+  <div class="footer-links">
+    <a href="https://github.com/stateflow-dev" target="_blank">GitHub</a>
+    <a href="https://stateflow-dev.github.io/stateflowlabs/encoding-doctor.html">encoding-doctor</a>
+    <a href="https://www.linkedin.com/in/stateflow-labs-734795412" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+const mobileNavClose = document.getElementById('mobileNavClose');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileNav.classList.toggle('open');
+  document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+});
+mobileNavClose.addEventListener('click', () => {
+  hamburger.classList.remove('open');
+  mobileNav.classList.remove('open');
+  document.body.style.overflow = '';
+});
+</script>
+</body>
+</html>
