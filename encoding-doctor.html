@@ -1251,6 +1251,250 @@ footer { border-top: 1px solid var(--border); padding: 3rem 4rem; display: flex;
   text-transform: uppercase;
 }
 
+
+/* ── REAL OUTPUT SECTION ── */
+.realout-section {
+  padding: 6rem 2rem;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative; z-index: 1;
+}
+.realout-inner { max-width: 1060px; margin: 0 auto; }
+
+.realout-commit-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  color: var(--green);
+  border: 1px solid var(--border-bright);
+  background: rgba(45,212,191,0.05);
+  padding: 7px 18px; border-radius: 4px;
+  text-decoration: none;
+  margin-top: 1.5rem;
+  transition: background 0.2s, border-color 0.2s;
+  letter-spacing: 0.04em;
+}
+.realout-commit-link:hover { background: rgba(45,212,191,0.12); border-color: var(--green); }
+
+.realout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* ── Card shell ── */
+.realout-card {
+  background: #060d0a;
+  border: 1px solid rgba(45,212,191,0.14);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: border-color 0.25s, transform 0.25s;
+  position: relative;
+}
+.realout-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, rgba(45,212,191,0.6), rgba(45,212,191,0.08));
+}
+.realout-card:hover {
+  border-color: rgba(45,212,191,0.32);
+  transform: translateY(-4px);
+}
+
+/* ── Card header ── */
+.realout-card-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 1.25rem 0.75rem;
+  border-bottom: 1px solid rgba(45,212,191,0.07);
+}
+.realout-card-meta { display: flex; align-items: center; gap: 10px; }
+.realout-badge {
+  font-family: var(--mono); font-size: 9.5px; font-weight: 700;
+  letter-spacing: 0.14em; padding: 3px 9px; border-radius: 3px;
+  text-transform: uppercase;
+}
+.realout-badge--mojibake {
+  color: #ff9a5c;
+  background: rgba(255,154,92,0.1);
+  border: 1px solid rgba(255,154,92,0.3);
+}
+.realout-badge--bom {
+  color: var(--warn);
+  background: rgba(254,188,46,0.1);
+  border: 1px solid rgba(254,188,46,0.28);
+}
+.realout-filename {
+  font-family: var(--mono); font-size: 12px; color: #9db8ac;
+  display: flex; align-items: center; gap: 6px;
+}
+.realout-filename svg { opacity: 0.5; }
+.realout-stats { display: flex; gap: 6px; align-items: center; }
+.realout-stat {
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  padding: 2px 7px; border-radius: 3px;
+}
+.realout-stat--add { color: #3fb950; background: rgba(63,185,80,0.1); border: 1px solid rgba(63,185,80,0.2); }
+.realout-stat--del { color: #f85149; background: rgba(248,81,73,0.1); border: 1px solid rgba(248,81,73,0.2); }
+
+/* ── Issue tag row ── */
+.realout-issue-tag {
+  display: flex; align-items: center; gap: 8px;
+  padding: 0.6rem 1.25rem;
+  font-family: var(--mono); font-size: 11px; color: #8ab8a8;
+  background: rgba(45,212,191,0.03);
+  border-bottom: 1px solid rgba(45,212,191,0.07);
+}
+.realout-issue-dot {
+  width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+}
+.realout-issue-dot--warn { background: var(--warn); box-shadow: 0 0 6px rgba(254,188,46,0.5); }
+
+/* ── Diff block ── */
+.realout-diff {
+  font-family: var(--mono); font-size: 12px;
+  line-height: 1.6;
+  overflow-x: auto;
+  flex: 1;
+}
+.realout-diff-header {
+  background: rgba(45,212,191,0.04);
+  border-bottom: 1px solid rgba(45,212,191,0.07);
+  padding: 5px 12px;
+}
+.realout-diff-range { color: #5a9ecc; font-size: 11px; }
+
+.diff-line {
+  display: grid;
+  grid-template-columns: 30px 30px 16px 1fr;
+  align-items: baseline;
+  padding: 1px 0;
+}
+.diff-line.diff-del { background: rgba(248,81,73,0.07); }
+.diff-line.diff-add { background: rgba(63,185,80,0.07); }
+.diff-line.diff-ctx { background: transparent; }
+
+.diff-ln, .diff-ln-empty {
+  font-size: 10.5px; color: rgba(107,144,128,0.45);
+  padding: 0 4px; text-align: right; user-select: none;
+  min-width: 30px;
+}
+.diff-ln-empty { min-width: 30px; }
+
+.diff-marker {
+  font-size: 11px; font-weight: 700; text-align: center; user-select: none;
+  padding: 0 2px;
+}
+.diff-del .diff-marker { color: #f85149; }
+.diff-add .diff-marker { color: #3fb950; }
+.diff-ctx .diff-marker { color: transparent; }
+
+.diff-code {
+  padding: 0 12px 0 4px; color: #cdd9d1; font-size: 11.5px;
+  white-space: pre; overflow: hidden; text-overflow: ellipsis;
+}
+.diff-str { color: #a8d5a2; }
+.diff-comment { color: #6b9080; }
+.diff-kw { color: #e06c75; }
+.diff-corrupt {
+  color: #ff6b6b;
+  background: rgba(255,107,107,0.15);
+  border-radius: 2px;
+  padding: 0 2px;
+  font-style: italic;
+}
+.diff-clean {
+  color: #2DD4BF;
+  background: rgba(45,212,191,0.12);
+  border-radius: 2px;
+  padding: 0 2px;
+}
+.diff-bom-tag {
+  font-size: 9px; color: var(--warn); opacity: 0.7;
+  background: rgba(254,188,46,0.1);
+  border: 1px solid rgba(254,188,46,0.2);
+  border-radius: 3px; padding: 0 5px; margin-left: 6px;
+  letter-spacing: 0.05em;
+}
+
+/* ── CRLF visual block ── */
+.realout-crlf-block {
+  padding: 0.9rem 1.25rem;
+  border-top: 1px solid rgba(45,212,191,0.07);
+  background: rgba(45,212,191,0.02);
+}
+.realout-crlf-label {
+  font-family: var(--mono); font-size: 10px; color: #6b9080;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.realout-crlf-row {
+  display: flex; align-items: center; gap: 14px;
+}
+.realout-crlf-side { display: flex; align-items: center; gap: 5px; }
+.crlf-tag {
+  font-family: var(--mono); font-size: 10px; font-weight: 700;
+  padding: 2px 6px; border-radius: 3px;
+  letter-spacing: 0.06em;
+}
+.crlf-bad { color: #f85149; background: rgba(248,81,73,0.1); border: 1px solid rgba(248,81,73,0.25); }
+.crlf-good { color: #3fb950; background: rgba(63,185,80,0.1); border: 1px solid rgba(63,185,80,0.25); }
+.crlf-label-text { font-family: var(--mono); font-size: 10px; color: #6b9080; }
+
+/* ── Card footer ── */
+.realout-card-footer {
+  display: flex; flex-direction: column; gap: 5px;
+  padding: 0.9rem 1.25rem;
+  border-top: 1px solid rgba(45,212,191,0.07);
+  background: rgba(0,0,0,0.2);
+}
+.realout-footer-item {
+  font-family: var(--mono); font-size: 11px;
+  display: flex; align-items: center; gap: 6px;
+}
+.realout-footer-item--ok { color: #3fb950; }
+.realout-footer-item--bak { color: var(--text-dim); }
+.realout-footer-item svg { flex-shrink: 0; }
+
+/* ── Proof bar ── */
+.realout-proof {
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(45,212,191,0.03);
+  border: 1px solid rgba(45,212,191,0.1);
+  border-radius: 8px;
+  padding: 0.85rem 1.5rem;
+  margin-top: 1.75rem;
+  gap: 1rem;
+}
+.realout-proof-left {
+  font-family: var(--mono); font-size: 11.5px; color: #6b9080;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.realout-proof-left code {
+  color: var(--green); background: rgba(45,212,191,0.08);
+  border: 1px solid var(--border); border-radius: 3px;
+  padding: 1px 6px; font-size: 11px;
+}
+.realout-proof-left svg { color: #6b9080; flex-shrink: 0; }
+.realout-proof-link {
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  color: var(--green); border: 1px solid var(--border-bright);
+  background: rgba(45,212,191,0.05);
+  padding: 6px 14px; border-radius: 4px;
+  text-decoration: none; white-space: nowrap;
+  display: flex; align-items: center; gap: 5px;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.realout-proof-link:hover { background: rgba(45,212,191,0.12); }
+
+/* responsive */
+@media (max-width: 820px) {
+  .realout-grid { grid-template-columns: 1fr; }
+  .realout-proof { flex-direction: column; align-items: flex-start; }
+}
+
 /* ── WHO IS THIS FOR ── */
 .who-section {
   padding: 5rem 2rem;
@@ -1614,6 +1858,184 @@ footer { border-top: 1px solid var(--border); padding: 3rem 4rem; display: flex;
       Press Enter ↵
     </button>
     <p style="font-family:var(--mono);font-size:11px;color:var(--text-dim);margin-top:0.6rem;">or press the Enter key on your keyboard</p>
+  </div>
+</section>
+
+
+<!-- REAL OUTPUT SECTION -->
+<section class="realout-section">
+  <div class="realout-inner">
+
+    <div class="reveal" style="text-align:center;margin-bottom:3.5rem;">
+      <p class="section-label">// real output · verified on github</p>
+      <h2 class="section-title">This is what your Git diff<br>looks like after.</h2>
+      <p class="section-desc" style="max-width:520px;margin:0.6rem auto 0;">Two files from a real commit — encoding issues detected, fixed, and verified by enc-doctor. Every character changed is shown below.</p>
+      <a href="https://github.com/stateflow-dev/example_project/commit/d67fbc8bc1120cd1843459367c2ed0e5ba8b9ccd#diff-9276fd69aa32669648492959fdbb602ec2020af20eee6fec15b4f5f4c7f59e30" target="_blank" rel="noopener" class="realout-commit-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        View full commit on GitHub
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+
+    <div class="realout-grid">
+
+      <!-- CARD 1: engine.py — mojibake -->
+      <div class="realout-card reveal">
+        <div class="realout-card-header">
+          <div class="realout-card-meta">
+            <span class="realout-badge realout-badge--mojibake">MOJIBAKE</span>
+            <span class="realout-filename">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              src/engine.py
+            </span>
+          </div>
+          <div class="realout-stats">
+            <span class="realout-stat realout-stat--add">+2</span>
+            <span class="realout-stat realout-stat--del">&minus;2</span>
+          </div>
+        </div>
+
+        <div class="realout-issue-tag">
+          <span class="realout-issue-dot realout-issue-dot--warn"></span>
+          2 mojibake patterns fixed &mdash; corrupted box-drawing chars &amp; broken arrows
+        </div>
+
+        <div class="realout-diff">
+          <div class="realout-diff-header">
+            <span class="realout-diff-range">@@ -15,12 +15,12 @@ def process(self, event: dict):</span>
+          </div>
+          <div class="diff-line diff-ctx"><span class="diff-ln">15</span><span class="diff-ln">15</span><span class="diff-code">    etype = event.get(<span class="diff-str">&quot;type&quot;</span>, <span class="diff-str">&quot;unknown&quot;</span>)</span></div>
+          <div class="diff-line diff-ctx"><span class="diff-ln">16</span><span class="diff-ln">16</span><span class="diff-code"></span></div>
+          <div class="diff-line diff-ctx"><span class="diff-ln">17</span><span class="diff-ln">17</span><span class="diff-code">    <span class="diff-comment"># Separator dengan mojibake</span></span></div>
+          <div class="diff-line diff-del">
+            <span class="diff-ln">18</span><span class="diff-ln-empty"></span>
+            <span class="diff-marker">&#8722;</span>
+            <span class="diff-code">    logger.info(<span class="diff-str">&quot;<span class="diff-corrupt">&#226;&#149;&#172;&#226;&#149;&#128;&#226;&#149;&#128;&#226;&#149;&#128;&#226;&#149;&#128;&#226;&#149;&#128;&#226;&#149;&#128;&#226;&#149;&#128;</span>&quot;</span>)</span>
+          </div>
+          <div class="diff-line diff-add">
+            <span class="diff-ln-empty"></span><span class="diff-ln">18</span>
+            <span class="diff-marker">+</span>
+            <span class="diff-code">    logger.info(<span class="diff-str">&quot;<span class="diff-clean">&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;</span>&quot;</span>)</span>
+          </div>
+          <div class="diff-line diff-ctx"><span class="diff-ln">19</span><span class="diff-ln">19</span><span class="diff-code"></span></div>
+          <div class="diff-line diff-ctx"><span class="diff-ln">20</span><span class="diff-ln">20</span><span class="diff-code">    self.count += 1</span></div>
+          <div class="diff-line diff-ctx"><span class="diff-ln">21</span><span class="diff-ln">21</span><span class="diff-code">    logger.info(<span class="diff-str">&quot;Processing: %s&quot;</span>, etype)</span></div>
+          <div class="diff-line diff-ctx"><span class="diff-ln">22</span><span class="diff-ln">22</span><span class="diff-code"></span></div>
+          <div class="diff-line diff-ctx"><span class="diff-ln">23</span><span class="diff-ln">23</span><span class="diff-code">    <span class="diff-comment"># Arrow corrupt</span></span></div>
+          <div class="diff-line diff-del">
+            <span class="diff-ln">24</span><span class="diff-ln-empty"></span>
+            <span class="diff-marker">&#8722;</span>
+            <span class="diff-code">    <span class="diff-comment"># Flow: input <span class="diff-corrupt">&#226;&#140;&#186;</span> process <span class="diff-corrupt">&#226;&#140;&#186;</span> output</span></span>
+          </div>
+          <div class="diff-line diff-add">
+            <span class="diff-ln-empty"></span><span class="diff-ln">24</span>
+            <span class="diff-marker">+</span>
+            <span class="diff-code">    <span class="diff-comment"># Flow: input <span class="diff-clean">&#8594;</span> process <span class="diff-clean">&#8594;</span> output</span></span>
+          </div>
+          <div class="diff-line diff-ctx"><span class="diff-ln">25</span><span class="diff-ln">25</span><span class="diff-code"></span></div>
+          <div class="diff-line diff-ctx"><span class="diff-ln">26</span><span class="diff-ln">26</span><span class="diff-code">    <span class="diff-kw">return</span> {<span class="diff-str">&quot;status&quot;</span>: <span class="diff-str">&quot;ok&quot;</span>, <span class="diff-str">&quot;count&quot;</span>: self.count}</span></div>
+        </div>
+
+        <div class="realout-card-footer">
+          <span class="realout-footer-item realout-footer-item--ok">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Box-drawing chars restored
+          </span>
+          <span class="realout-footer-item realout-footer-item--ok">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Arrow symbols restored
+          </span>
+          <span class="realout-footer-item realout-footer-item--bak">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            engine.py.bak saved
+          </span>
+        </div>
+      </div>
+
+      <!-- CARD 2: settings.ini — BOM + CRLF -->
+      <div class="realout-card reveal">
+        <div class="realout-card-header">
+          <div class="realout-card-meta">
+            <span class="realout-badge realout-badge--bom">BOM + CRLF</span>
+            <span class="realout-filename">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              config/settings.ini
+            </span>
+          </div>
+          <div class="realout-stats">
+            <span class="realout-stat realout-stat--add">+1</span>
+            <span class="realout-stat realout-stat--del">&minus;1</span>
+          </div>
+        </div>
+
+        <div class="realout-issue-tag">
+          <span class="realout-issue-dot realout-issue-dot--warn"></span>
+          BOM prefix stripped &mdash; 9 CRLF &rarr; LF line endings normalized
+        </div>
+
+        <div class="realout-diff">
+          <div class="realout-diff-header">
+            <span class="realout-diff-range">@@ -1,4 +1,4 @@</span>
+          </div>
+          <div class="diff-line diff-del">
+            <span class="diff-ln">1</span><span class="diff-ln-empty"></span>
+            <span class="diff-marker">&#8722;</span>
+            <span class="diff-code"><span class="diff-corrupt">[database]</span><span class="diff-bom-tag">&#8592; BOM &#xef;&#xbb;&#xbf;</span></span>
+          </div>
+          <div class="diff-line diff-add">
+            <span class="diff-ln-empty"></span><span class="diff-ln">1</span>
+            <span class="diff-marker">+</span>
+            <span class="diff-code"><span class="diff-clean">[database]</span></span>
+          </div>
+          <div class="diff-line diff-ctx"><span class="diff-ln">2</span><span class="diff-ln">2</span><span class="diff-code">host = localhost</span></div>
+          <div class="diff-line diff-ctx"><span class="diff-ln">3</span><span class="diff-ln">3</span><span class="diff-code">port = 5432</span></div>
+          <div class="diff-line diff-ctx"><span class="diff-ln">4</span><span class="diff-ln">4</span><span class="diff-code">name = mydb</span></div>
+        </div>
+
+        <div class="realout-crlf-block">
+          <div class="realout-crlf-label">Line ending normalization &mdash; 9 lines affected</div>
+          <div class="realout-crlf-row">
+            <div class="realout-crlf-side">
+              <span class="crlf-tag crlf-bad">CR</span><span class="crlf-tag crlf-bad">LF</span>
+              <span class="crlf-label-text">Windows</span>
+            </div>
+            <svg width="28" height="16" viewBox="0 0 28 16" fill="none"><path d="M2 8h20M18 3l6 5-6 5" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="realout-crlf-side">
+              <span class="crlf-tag crlf-good">LF</span>
+              <span class="crlf-label-text">Unix</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="realout-card-footer">
+          <span class="realout-footer-item realout-footer-item--ok">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            BOM stripped &mdash; Python open() safe
+          </span>
+          <span class="realout-footer-item realout-footer-item--ok">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            9 CRLF &rarr; LF normalized
+          </span>
+          <span class="realout-footer-item realout-footer-item--bak">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            settings.ini.bak saved
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="realout-proof reveal">
+      <div class="realout-proof-left">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+        Real commit &middot; <code>d67fbc8</code> on <code>stateflow-dev/example_project</code> &middot; not a mockup
+      </div>
+      <a href="https://github.com/stateflow-dev/example_project/commit/d67fbc8bc1120cd1843459367c2ed0e5ba8b9ccd#diff-9276fd69aa32669648492959fdbb602ec2020af20eee6fec15b4f5f4c7f59e30" target="_blank" rel="noopener" class="realout-proof-link">
+        Open in GitHub
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+
   </div>
 </section>
 
@@ -2212,23 +2634,24 @@ const STEPS = [
   {
     cmd: 'enc-doctor scan C:\\Users\\use-doctor\\Downloads\\example_project',
     assistBefore: 'Now let\'s <strong>scan</strong> the example project. This will detect all encoding issues without touching any files. Safe to run anytime. Press <strong>Enter ↵</strong>.',
-    assistAfter: '4 files have issues — BOM, CRLF, and null bytes detected. Before touching anything, let\'s <strong>back up the entire project folder</strong> first. Press <strong>Enter ↵</strong> to create a backup.',
+    assistAfter: '4 files have issues — BOM, CRLF, null bytes, and mojibake detected. Before touching anything, let\'s <strong>back up the entire project folder</strong> first. Press <strong>Enter ↵</strong> to create a backup.',
     output: [
       { text: '', cls: 'wc-default' },
       { text: 'SCAN REPORT', cls: 'wc-bold' },
       { text: '============================================================', cls: 'wc-dim' },
-      { text: '  Total files scanned : 7', cls: 'wc-default' },
+      { text: '  Total files scanned : 12', cls: 'wc-default' },
       { text: '  Files with issues   : 4', cls: 'wc-yellow' },
-      { text: '  Clean files         : 3', cls: 'wc-green' },
+      { text: '  Clean files         : 8', cls: 'wc-green' },
       { text: '', cls: 'wc-default' },
-      { text: '  WARN  ..\\..\\example_project\\config\\settings.ini', cls: 'wc-yellow' },
+      { text: '  WARN  Downloads\\example_project\\config\\settings.ini', cls: 'wc-yellow' },
       { text: '        > BOM (\\xef\\xbb\\xbf) detected (1x)', cls: 'wc-dim' },
-      { text: '        > CRLF line endings (4x)', cls: 'wc-dim' },
-      { text: '  WARN  ..\\..\\example_project\\data\\users.csv', cls: 'wc-yellow' },
+      { text: '        > CRLF line endings (9x)', cls: 'wc-dim' },
+      { text: '  WARN  Downloads\\example_project\\data\\users.csv', cls: 'wc-yellow' },
       { text: '        > null bytes (2x)', cls: 'wc-dim' },
-      { text: '  WARN  ..\\..\\example_project\\src\\database.py', cls: 'wc-yellow' },
-      { text: '        > BOM (\\xef\\xbb\\xbf) detected (1x)', cls: 'wc-dim' },
-      { text: '  WARN  ..\\..\\example_project\\src\\utils.py', cls: 'wc-yellow' },
+      { text: '  WARN  Downloads\\example_project\\src\\engine.py', cls: 'wc-yellow' },
+      { text: '        > mojibake: arrow -> (2x)', cls: 'wc-dim' },
+      { text: '        > mojibake: box = (15x)', cls: 'wc-dim' },
+      { text: '  WARN  Downloads\\example_project\\src\\utils.py', cls: 'wc-yellow' },
       { text: '        > CRLF line endings (5x)', cls: 'wc-dim' },
       { text: '', cls: 'wc-default' },
       { text: "  Run 'enc-doctor fix <path>' to repair fixable issues.", cls: 'wc-yellow' },
@@ -2243,13 +2666,18 @@ const STEPS = [
       { text: '', cls: 'wc-default' },
       { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\config\\settings.ini', cls: 'wc-dim' },
       { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\data\\users.csv', cls: 'wc-dim' },
-      { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\src\\database.py', cls: 'wc-dim' },
+      { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\src\\engine.py', cls: 'wc-dim' },
       { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\src\\utils.py', cls: 'wc-dim' },
       { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\src\\main.py', cls: 'wc-dim' },
+      { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\src\\parser.py', cls: 'wc-dim' },
+      { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\src\\models.py', cls: 'wc-dim' },
+      { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\src\\helpers.py', cls: 'wc-dim' },
+      { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\tests\\test_core.py', cls: 'wc-dim' },
+      { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\tests\\test_utils.py', cls: 'wc-dim' },
       { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\README.md', cls: 'wc-dim' },
       { text: 'C:\\Users\\use-doctor\\Downloads\\example_project\\requirements.txt', cls: 'wc-dim' },
       { text: '', cls: 'wc-default' },
-      { text: '7 File(s) copied', cls: 'wc-green' },
+      { text: '12 File(s) copied', cls: 'wc-green' },
       { text: '', cls: 'wc-default' },
       { text: '  Backup saved to: example_project_backup\\', cls: 'wc-green' },
     ]
@@ -2257,7 +2685,7 @@ const STEPS = [
   {
     cmd: 'enc-doctor fix C:\\Users\\use-doctor\\Downloads\\example_project --dry-run',
     assistBefore: 'Smart move — always use <code>--dry-run</code> first. This shows exactly what will change <em>without</em> writing anything to disk. Zero risk. Press <strong>Enter ↵</strong>.',
-    assistAfter: 'Looks good! 5 issues will be fixed across 4 files. Now let\'s run the real fix to apply those changes. Press <strong>Enter ↵</strong> to run <code>fix</code> for real.',
+    assistAfter: 'Looks good! 6 issues will be fixed across 4 files. Now let\'s run the real fix to apply those changes. Press <strong>Enter ↵</strong> to run <code>fix</code> for real.',
     output: [
       { text: 'WARNING: enc-doctor fix modifies files in-place.', cls: 'wc-yellow' },
       { text: 'Backups will be created as .bak files.', cls: 'wc-dim' },
@@ -2266,23 +2694,24 @@ const STEPS = [
       { text: '', cls: 'wc-default' },
       { text: 'DRY RUN', cls: 'wc-bold' },
       { text: '============================================================', cls: 'wc-dim' },
-      { text: '  FIXED  ..\\..\\example_project\\config\\settings.ini', cls: 'wc-green' },
+      { text: '  FIXED  Downloads\\example_project\\config\\settings.ini', cls: 'wc-green' },
       { text: '         > BOM stripped', cls: 'wc-dim' },
-      { text: '         > CRLF -> LF (4 lines)', cls: 'wc-dim' },
-      { text: '  FIXED  ..\\..\\example_project\\data\\users.csv', cls: 'wc-green' },
+      { text: '         > CRLF -> LF (9 lines)', cls: 'wc-dim' },
+      { text: '  FIXED  Downloads\\example_project\\data\\users.csv', cls: 'wc-green' },
       { text: '         > null bytes removed (2)', cls: 'wc-dim' },
-      { text: '  FIXED  ..\\..\\example_project\\src\\database.py', cls: 'wc-green' },
-      { text: '         > BOM stripped', cls: 'wc-dim' },
-      { text: '  FIXED  ..\\..\\example_project\\src\\utils.py', cls: 'wc-green' },
+      { text: '  FIXED  Downloads\\example_project\\src\\engine.py', cls: 'wc-green' },
+      { text: '         > mojibake fixed: arrow -> (2x)', cls: 'wc-dim' },
+      { text: '         > mojibake fixed: box = (15x)', cls: 'wc-dim' },
+      { text: '  FIXED  Downloads\\example_project\\src\\utils.py', cls: 'wc-green' },
       { text: '         > CRLF -> LF (5 lines)', cls: 'wc-dim' },
       { text: '', cls: 'wc-default' },
-      { text: '  Would fix 5 issue(s).', cls: 'wc-green' },
+      { text: '  Would fix 6 issue(s).', cls: 'wc-green' },
     ]
   },
   {
     cmd: 'enc-doctor fix C:\\Users\\use-doctor\\Downloads\\example_project',
     assistBefore: 'This is the real fix — files will be modified in-place. Backups (.bak) are created automatically before touching anything. Press <strong>Enter ↵</strong> to apply.',
-    assistAfter: 'All 4 files fixed, 5 issues resolved, and backups saved. One last step: let\'s <strong>verify</strong> everything is now valid UTF-8. Press <strong>Enter ↵</strong>.',
+    assistAfter: 'All 4 files fixed, 6 issues resolved, and backups saved. One last step: let\'s <strong>verify</strong> everything is now valid UTF-8. Press <strong>Enter ↵</strong>.',
     output: [
       { text: 'WARNING: enc-doctor fix modifies files in-place.', cls: 'wc-yellow' },
       { text: 'Backups will be created as .bak files.', cls: 'wc-dim' },
@@ -2291,21 +2720,22 @@ const STEPS = [
       { text: '', cls: 'wc-default' },
       { text: 'FIX REPORT', cls: 'wc-bold' },
       { text: '============================================================', cls: 'wc-dim' },
-      { text: '  FIXED  ..\\..\\example_project\\config\\settings.ini', cls: 'wc-green' },
+      { text: '  FIXED  Downloads\\example_project\\config\\settings.ini', cls: 'wc-green' },
       { text: '         > BOM stripped', cls: 'wc-dim' },
-      { text: '         > CRLF -> LF (4 lines)', cls: 'wc-dim' },
-      { text: '         backup: ..\\..\\example_project\\config\\settings.ini.bak', cls: 'wc-dim' },
-      { text: '  FIXED  ..\\..\\example_project\\data\\users.csv', cls: 'wc-green' },
+      { text: '         > CRLF -> LF (9 lines)', cls: 'wc-dim' },
+      { text: '         backup: Downloads\\example_project\\config\\settings.ini.bak', cls: 'wc-dim' },
+      { text: '  FIXED  Downloads\\example_project\\data\\users.csv', cls: 'wc-green' },
       { text: '         > null bytes removed (2)', cls: 'wc-dim' },
-      { text: '         backup: ..\\..\\example_project\\data\\users.csv.bak', cls: 'wc-dim' },
-      { text: '  FIXED  ..\\..\\example_project\\src\\database.py', cls: 'wc-green' },
-      { text: '         > BOM stripped', cls: 'wc-dim' },
-      { text: '         backup: ..\\..\\example_project\\src\\database.py.bak', cls: 'wc-dim' },
-      { text: '  FIXED  ..\\..\\example_project\\src\\utils.py', cls: 'wc-green' },
+      { text: '         backup: Downloads\\example_project\\data\\users.csv.bak', cls: 'wc-dim' },
+      { text: '  FIXED  Downloads\\example_project\\src\\engine.py', cls: 'wc-green' },
+      { text: '         > mojibake fixed: arrow -> (2x)', cls: 'wc-dim' },
+      { text: '         > mojibake fixed: box = (15x)', cls: 'wc-dim' },
+      { text: '         backup: Downloads\\example_project\\src\\engine.py.bak', cls: 'wc-dim' },
+      { text: '  FIXED  Downloads\\example_project\\src\\utils.py', cls: 'wc-green' },
       { text: '         > CRLF -> LF (5 lines)', cls: 'wc-dim' },
-      { text: '         backup: ..\\..\\example_project\\src\\utils.py.bak', cls: 'wc-dim' },
+      { text: '         backup: Downloads\\example_project\\src\\utils.py.bak', cls: 'wc-dim' },
       { text: '', cls: 'wc-default' },
-      { text: '  Fixed 5 issue(s).', cls: 'wc-green' },
+      { text: '  Fixed 6 issue(s).', cls: 'wc-green' },
       { text: '  Backups saved as .bak', cls: 'wc-dim' },
       { text: "  Run 'enc-doctor verify <path>' to confirm.", cls: 'wc-dim' },
     ]
@@ -2313,13 +2743,13 @@ const STEPS = [
   {
     cmd: 'enc-doctor verify C:\\Users\\use-doctor\\Downloads\\example_project',
     assistBefore: 'Last step — <strong>verify</strong> checks every file is valid UTF-8 and safe to commit. Always run this after fixing. Press <strong>Enter ↵</strong>.',
-    assistAfter: '✓ <strong>All 7/7 files pass.</strong> Project is clean and safe to commit. Optional: once you have committed and are sure everything is correct, clean up .bak files with <code>del /s /q *.bak</code> (Windows) or <code>find . -name "*.bak" -delete</code> (macOS/Linux). That\'s the complete enc-doctor workflow — install → activate → scan → backup → dry-run → fix → verify.',
+    assistAfter: '✓ <strong>All 12/12 files pass.</strong> Project is clean and safe to commit. Optional: once you have committed and are sure everything is correct, clean up .bak files with <code>del /s /q *.bak</code> (Windows) or <code>find . -name "*.bak" -delete</code> (macOS/Linux). That\'s the complete enc-doctor workflow — install → activate → scan → backup → dry-run → fix → verify.',
     output: [
       { text: '', cls: 'wc-default' },
       { text: 'VERIFY REPORT', cls: 'wc-bold' },
       { text: '============================================================', cls: 'wc-dim' },
       { text: '', cls: 'wc-default' },
-      { text: '  PASS  7 / 7 files', cls: 'wc-green' },
+      { text: '  PASS  12 / 12 files', cls: 'wc-green' },
       { text: '  All files valid UTF-8. Safe to commit.', cls: 'wc-green' },
     ]
   }
