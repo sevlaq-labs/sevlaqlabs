@@ -2392,7 +2392,7 @@ footer { border-top: 1px solid var(--border); padding: 3rem 4rem; display: flex;
 
       <div class="faq-item reveal" onclick="toggleFaq(this)">
         <div class="faq-q">Does it work offline or in air-gapped environments? <i class="faq-icon">+</i></div>
-        <div class="faq-a">Scan works fully offline — zero network required. Fix and verify require a one-time license activation, but once activated the license is stored locally. encoding-doctor has zero runtime dependencies and runs on any machine with Python 3.9+ including Raspberry Pi, edge devices, and air-gapped servers.</div>
+        <div class="faq-a">Scan works fully offline — zero network required. Fix and verify require a one-time license activation, but once activated the license is stored locally and never needs to phone home again. encoding-doctor has zero runtime dependencies — if Python 3.9+ runs on it, enc-doctor runs on it.</div>
       </div>
 
     </div>
@@ -2743,7 +2743,7 @@ const STEPS = [
   {
     cmd: 'enc-doctor verify C:\\Users\\use-doctor\\Downloads\\example_project',
     assistBefore: 'Last step — <strong>verify</strong> checks every file is valid UTF-8 and safe to commit. Always run this after fixing. Press <strong>Enter ↵</strong>.',
-    assistAfter: '✓ <strong>All 12/12 files pass.</strong> Project is clean and safe to commit. Optional: once you have committed and are sure everything is correct, clean up .bak files with <code>del /s /q *.bak</code> (Windows) or <code>find . -name "*.bak" -delete</code> (macOS/Linux). That\'s the complete enc-doctor workflow — install → activate → scan → backup → dry-run → fix → verify.',
+    assistAfter: '✓ <strong>All 12/12 files pass.</strong> Safe to commit. Remove backups when done: <code>del /s /q *.bak</code> (Windows) or <code>find . -name "*.bak" -delete</code> (macOS/Linux).',
     output: [
       { text: '', cls: 'wc-default' },
       { text: 'VERIFY REPORT', cls: 'wc-bold' },
